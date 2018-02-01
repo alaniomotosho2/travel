@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
 	#path('', views.index, name='index'),
 	url(r'^$', views.index, name='index'),
+	url(r'^umrah$', views.umrah, name='umrah'),
 ]

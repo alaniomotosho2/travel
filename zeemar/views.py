@@ -4,3 +4,6 @@ from django.shortcuts import render
 
 def index(request):
 	return render(request,'zeemar/index.html')
+
+def umrah(request):
+	return render(request,'zeemar/umrah.html')
