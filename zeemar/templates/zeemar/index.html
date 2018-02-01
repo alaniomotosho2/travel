@@ -1,0 +1,431 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    <title>Zeemar Travels</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="{% static 'css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+       .at{
+        margin: 15px;
+        padding: 15px
+       }
+    </style>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+    jQuery(document).ready(function($) {
+        $('a[href^="#"]').bind('click.smoothscroll',function (e) {
+        e.preventDefault();
+          var target = this.hash,
+          $target = $(target);
+
+          $('html, body').stop().animate( {
+          'scrollTop': $target.offset().top-40
+          }, 900, 'swing', function () {
+          window.location.hash = target;
+          } );
+        } );
+        } );
+
+
+
+
+
+
+
+
+
+       $(document).on('click','.navbar-collapse.in',function(e) {
+    if( $(e.target).is('a') ) {
+        $(this).collapse('hide');
+    }
+});
+    </script>
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{% static 'js/ie-emulation-modes-warning.js' %}"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/carousel.css' %}" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="container" style="color:black;position:fixed;top:0px;">
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-2">
+          <i class="fa fa-phone" aria-hidden="true"></i><span style="margin-left:10px">12345667787</span>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-2">
+          <i class="fa fa-envelope" aria-hidden="true"></i><span style="margin-left:10px">ismail@yahoo.com</span>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div  class="navbar-wrapper" >
+      <div class="container">
+
+        <nav class="navbar navbar-inverse  navbar-fixed-top" style="margin-top: 20px;background-color: #5a5c51;color:white;">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Zeemar Travels</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li ><a  href="#myCarousel">Home</a></li>
+                <li><a href="#abt">About</a></li>
+                <li><a href="#about">Flight or Hotel Booking</a></li>
+                <li><a href="#train">Training</a></li>
+                <li><a href="#myCarousel">Packages</a></li>
+                <li><a href="#myCarousel">Visa</a></li>
+                <li><a href="#myCarousel">Insurance</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="margin-top:80px;">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="{% static 'images/a.jpg' %}" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <p class="text-success bg-success">Do they then not travel through the Earth, so that their minds gain wisdom and their ears thus learn to hear? For surely it is not the eyes that are blind, but blind are the minds which are in the foremost. 22:46 </p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="{% static 'images/22.jpg' %}" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <p class="text-success bg-warning">Those who have emigrated for God because they were oppressed, We will grant them good in this world, and the reward of the End will be greater, if they knew. 16:41</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="{% static 'images/33.jpg' %}" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <p class="text-success bg-info">Say: Travel through the Earth and deeply observe HOW God did originate the creation; then God produces the next creation; surely God has power over all things. 29:19-20</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <img class="third-slide" src="{% static 'images/44.jpg' %}" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <p class="text-success bg-success">Have you not seen the ships speeding through the sea, carrying God’s provisions, so that He might show you some of His wonders? Herein, behold, there are messages indeed for all who are patient, grate­ful. 31:31</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <img class="img-circle" src="{% static '/images/saudi.jpeg' %}" alt="Generic placeholder image" width="140" height="140">
+          <p>Sudi Arabia</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <img class="img-circle" src="{% static '/images/paris.jpeg' %}" " alt="Generic placeholder image" width="140" height="140">
+          <p>Paris, France</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4 col-md-4 col-sm-4"">
+          <img class="img-circle" src="{% static '/images/china.jpeg' %}" " alt="Generic placeholder image" width="140" height="140">
+          <p>Beijing, China</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+      <hr id="abt" class="featurette-divider">
+      <div class="row featurette" style="background-color: #f6f1ed">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <center><h3 class="text-success" style="color:black"><u>ABOUT US</u></h3></center>
+        </div>
+      </div>
+
+      <!--<hr id="abt" class="featurette-divider">-->
+
+      <div  class="row featurette" style="background-color: #f6f1ed">
+        <div class="col-md-7">
+          <h4 class="text-success">Our Mission</h4>
+          <blockquote class="blockquote">
+          <p class="text-justify font-italic">To provide the best services in the Travel industry quickly, reliably and in the most efficient way to our customers through honesty, persistence and devotion to our course and that of our principals</p>
+          </blockquote>
+          <h4 class="text-success ">Our Vision</h4>
+          <blockquote class="blockquote">
+          <p class="text-justify font-italic">To maintain the highest standards in the conduct of our business through training, reward and motivation of our entire workforce and to maintain an enviable image as a reflection of our competence in our endeavour.</p>
+          </blockquote>
+        </div>
+        <div  class="col-md-5">
+        <center><h4 id="annbt" class="text-success ">About Us</h4></center>
+        <blockquote class="blockquote">
+              <p class="text-justify"><small>
+              Zeemar Travels Services Ltd is run by cream of IATA Certified Professionals  who have been piloting the Company since inception. 
+
+              We have been participating in the Hajj and Umrah operations since inception of the Company and have been licenced by the National Hajj Commission of Nigeria (NAHCON) on several occasions.
+
+              Zeemar Travels Services Ltd is a member of the National Association of Nigeria Travel Agencies and Association of Umrah and Hajj operators of Nigeria.
+              </small></p>
+        </blockquote>
+        </div>
+      </div>
+
+      <hr id="train" class="featurette-divider">
+
+      <div  class="row" style="background-color:#e1e8f0";>
+        <div><center><h2 style="color:black"><u>IATA TRAINING</u></h2></center></div>
+      </div>
+
+      <div class="row featurette" style="background-color:#e1e8f0;">
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h4 class="text-left" style="color:black">Tailored Made Training</h4>
+          <ul style="list-style-type: none;">
+            <li class="text-left">Ticketing/Reservation course</li>
+            <li class="text-left">Amadeus selling platform,</li>
+            <li class="text-left">Sabre selling platform Training,</li>
+            <li class="text-left">Galileo selling platform training, </li>
+            <li class="text-left">BspLink training,</li>
+            <li class="text-left">TIESS training,</li>
+            <li class="text-left">Office routine course</li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h4 class="text-left" style="color:black">INTERNATIONAL TRAINING</h4>
+            <ul style="list-style-type: none;">
+              <li class="text-left">All IATA distance learning Courses</li>
+            <li class="text-left">Marriott Specialized Training</li>
+            <li class="text-left">IATA classroom Courses (registration only)</li>
+            </ul>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <h4 class="text-left" style="color:black">SERVICES</h4>
+          <ul style="list-style-type:none;">
+            <li class="text-left">Ticketing/ Reservation services</li>
+          <li class="text-left">Re-routing, Revalidation and Reconfirmation of Flights</li>
+          <li class="text-left">Visas Consultation and processing</li>
+          <li class="text-left">Passport processing</li>
+          <li class="text-left">Transit Visas</li>
+          <li class="text-left">International and Local Tickets sales</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr id="contact" class="featurette-divider">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row featurette">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <center><h3 style="color:black"><u>SEND US A MESSAGE</u></h3></center>
+        </div>
+      </div>
+<div class="row featurette">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div id="map"></div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div  class="row featurette" style="background-color: #bcd5d1">
+        <div class="col-md-7">
+        <center><h3><u>OUR ADDRESS </u></h3></center>
+        <h4 class="at"><i class="fa fa-phone" aria-hidden="true"></i><span style="margin-left:10px">12345667787</span></h4>
+        <h4 class="at"><i class="fa fa-envelope" aria-hidden="true"></i><span style="margin-left:10px">ismail@yahoo.com</span></h4>
+        <h4 class="at"><i class="fas fa-map-marker"></i><span style="margin-left:10px">No1 2 adeolu odeku street victorial island, Lagos,Nigeria</span></h4>
+        </div>
+        <div class="col-md-5">
+                <form action="">
+                <div class="form-group">
+                <input name="fname" type="text" class="form-control" id="email" placeholder="Enter First name">
+                </div>
+                <div class="form-group">
+                  <input name="sname" type="text" class="form-control" id="email" placeholder="Enter second Name">
+                  </div>
+                  <div class="form-group">
+                  <input name="email" type="email" class="form-control" id="email" placeholder="Enter Your Email">
+                  </div>
+                  <div class="form-group">
+                  <input name="mobile" type="mobile" class="form-control" id="email" placeholder="Enter Your Mobile">
+                  </div>
+                  <textarea name="reason" class="form-control" rows="3">Tell Us Why You are contacting Us</textarea>
+                  <div class="checkbox">
+                  <button type="submit" class="btn btn-success">Send Message</button>
+                </form>
+        </div>
+      </div>
+      </div>
+
+      <!--<hr class="featurette-divider">-->
+
+      <!-- /END THE FEATURETTES -->
+
+
+     
+ <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container" style="margin-top:10px;width:100%;color:black">
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-lg-12">
+            <p class="m-0 text-center text-white">Copyright &copy; ZEEMAR TRAVELS. ALL RIGHT RESERVED</p>
+          </div>
+        </div>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static 'js/jquery.min.js' %}"><\/script>')</script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'js/vendor/holder.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+
+    <script>
+      function initMap() {
+        var uluru = {lat:12.9137559,lng:77.6372802}
+        //var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0RXxaIkzGX_Ngjlni96XUdzbKXg02_kU&callback=initMap">
+    </script>
+  </body>
+</html>
